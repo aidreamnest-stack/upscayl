@@ -16,4 +16,14 @@
 - **Architectural Gotchas / Invariants**:
   - In multi-directory setups where Next.js runs from a subdirectory like `renderer/`, PostCSS plugins must be explicitly supplied with absolute paths to root configurations (`tailwind.config.js`), and Tailwind `content` globs must cover paths evaluated from both root and `./renderer` working directories.
 
+### Fix: Windows Standalone Software Packaging (`electron-builder 26+` schema validation)
+- **Problem & Root Cause**:
+  - Running `electron-builder --dir` failed with `Invalid configuration object: configuration.win should be one of these: null` and `.dmg.sign should be boolean`.
+  - In `electron-builder 26+`, `dmg.sign` must be a boolean (`false`), not string (`"false"`).
+  - `publisherName` is not a permitted key directly under the `win` block schema.
+- **Solution & Modified Files**:
+  - Modified [package.json](file:///c:/Users/jassi/OneDrive/Desktop/upscayl/package.json): Changed `dmg.sign` to boolean `false` and removed invalid `publisherName` from `win`.
+- **Packaging Output**:
+  - Generated standalone instant Windows application executable at `dist/win-unpacked/Upscayl.exe` (246 MB), which runs standalone without installation.
+  - Created Windows Desktop Shortcut at `C:\Users\jassi\OneDrive\Desktop\Upscayl.lnk` for 1-click launch.
 

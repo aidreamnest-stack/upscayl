@@ -152,7 +152,7 @@
       ]
     },
     "dmg": {
-      "sign": "false",
+      "sign": false,
       "contents": [
         {
           "x": 130,
@@ -180,7 +180,6 @@
       "icon": "resources/icons/"
     },
     "win": {
-      "publisherName": "Upscayl Team",
       "target": [
         "nsis",
         "zip"
