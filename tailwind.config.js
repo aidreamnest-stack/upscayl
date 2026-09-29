@@ -6,6 +6,8 @@ module.exports = {
   content: [
     "./renderer/pages/**/*.{js,ts,jsx,tsx}",
     "./renderer/components/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   safelist: [
     ...[...Array(101).keys()].flatMap((index) => [
