@@ -12,6 +12,8 @@
 - **Solution & Modified Files**:
   - Modified [postcss.config.js](file:///c:/Users/jassi/OneDrive/Desktop/upscayl/postcss.config.js): Explicitly passed the absolute path to `tailwind.config.js` via `path.join(__dirname, "tailwind.config.js")` into the `tailwindcss` plugin config.
   - Modified [tailwind.config.js](file:///c:/Users/jassi/OneDrive/Desktop/upscayl/tailwind.config.js): Added `./pages/**/*.{js,ts,jsx,tsx}` and `./components/**/*.{js,ts,jsx,tsx}` alongside the `./renderer/...` paths in `content` so Tailwind correctly discovers all 65 component and page files from both root and renderer execution contexts.
+  - Added [.vscode/settings.json](file:///c:/Users/jassi/OneDrive/Desktop/upscayl/.vscode/settings.json): Suppressed `css.lint.unknownAtRules` in VS Code to avoid false cosmetic warnings on `@apply` and `@tailwind`.
 - **Architectural Gotchas / Invariants**:
   - In multi-directory setups where Next.js runs from a subdirectory like `renderer/`, PostCSS plugins must be explicitly supplied with absolute paths to root configurations (`tailwind.config.js`), and Tailwind `content` globs must cover paths evaluated from both root and `./renderer` working directories.
+
 
